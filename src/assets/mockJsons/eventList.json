@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Sunburn 2019",
+    "date": "10th July 2019",
+    "numOfSeatsAvail": 20,
+    "imageUrl": "assets/images/sunburn.jpg",
+    "genre": "Fest, Dance, Music",
+    "eventId": "1"
+  },
+  {
+    "name": "Balcony Painting",
+    "date": "14th July 2019",
+    "numOfSeatsAvail": 0,
+    "imageUrl": "assets/images/balcony_painting.jpg",
+    "genre": "Art and Drawing",
+    "eventId": "2"
+  },
+  {
+    "name": "Hard Rock Cafe Acoustic Night Live",
+    "date": "20th August 2019",
+    "numOfSeatsAvail": 3,
+    "imageUrl": "assets/images/hard_rock.webp",
+    "genre": "Fest, Dance, Music",
+    "eventId": "3"
+  },
+  {
+    "name": "India's Next Model",
+    "date": "3rd July 2019",
+    "numOfSeatsAvail": 20,
+    "imageUrl": "assets/images/modeling.webp",
+    "genre": "Fashion and Modeling",
+    "eventId": "4"
+  },
+  {
+    "name": "Portuguese Saala",
+    "date": "29th November 2019",
+    "numOfSeatsAvail": 20,
+    "imageUrl": "assets/images/salsa.jpg",
+    "genre": "Comedy",
+    "eventId": "5"
+  },
+  {
+    "name": "Divine Shanyayan",
+    "date": "26th Octber 2019",
+    "numOfSeatsAvail": 0,
+    "imageUrl": "assets/images/shanyayan.webp",
+    "genre": "Music and Culture",
+    "eventId": "6"
+  },
+  {
+    "name": "Mr ABC Comedy",
+    "date": "26 July 2019",
+    "numOfSeatsAvail": 20,
+    "imageUrl": "assets/images/stand_up.jpg",
+    "genre": "Comedy",
+    "eventId": "7"
+  }
+]

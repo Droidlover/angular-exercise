@@ -1,0 +1,67 @@
+.event-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.event-card:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  z-index: 100;
+}
+
+/*.card.event-card {*/
+  /*border-color: #f57272;*/
+/*}*/
+
+.event-card-body {
+  display: flex;
+}
+
+.event-card-seats {
+  color: #999;
+  font-size: 12px;
+}
+
+.event-card-text {
+  text-decoration: none;
+  line-height: normal;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.event-card-name {
+  color: black;
+  font-size: 14px;
+}
+
+.event-card-date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #000000bf;
+  left: 0;
+  color: white;
+  text-align: center;
+}
+
+.event-card-img-cont {
+  position: relative;
+}
+
+.event-card-book-btn {
+  text-align: center;
+  align-self: center;
+}
+
+.search-bar {
+  justify-content: center;
+}
+
+.span-block {
+  display: block;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

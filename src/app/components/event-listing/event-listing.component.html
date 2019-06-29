@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row search-bar">
+    <div class="input-group col-sm-12 col-md-8 mb-3 mt-2">
+      <input type="text" class="form-control" placeholder="SEARCH EVENTS..." aria-label="Recipient's username"
+             aria-describedby="basic-addon2"
+             name="search" id="search" [(ngModel)]="searchText">
+      <div class="input-group-append">
+        <span class="input-group-text"><i class="fa fa-search"></i>Search</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <ng-container *ngIf="(eventList|filter:searchText:'name') as filteredEvents">
+      <div class="col-lg-3 col-md-4 col-sm-12"
+           *ngFor="let event of filteredEvents; let i = index">
+        <div class="card event-card mt-1">
+          <div class="event-card-img-cont">
+            <img class="card-img-top event-card-img" [src]="event.imageUrl" [alt]="event.name">
+            <span class="event-card-date">{{event.date}}</span>
+          </div>
+          <div class="container event-card-body">
+            <div class="row text-overflow">
+              <div class="col-sm-12 mt-2 mb-2 text-overflow">
+              <span class="event-card-name event-card-text" data-toggle="tooltip"
+                    [title]="event.name">{{event.name}}</span>
+                <span class="event-card-seats event-card-text span-block">{{event.genre}}</span>
+                <span class="event-card-seats event-card-text span-block">Seats : {{event.numOfSeatsAvail}}</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="bookTicket(event)" *ngIf="isTicketAvailable(event)">
+            {{Constants.TICKET_BOOKING_TEXT.AVAILABLE}}
+          </button>
+          <p *ngIf="!isTicketAvailable(event)" class="text-sm-center"> {{Constants.TICKET_BOOKING_TEXT.SOLD_OUT}}</p>
+        </div>
+      </div>
+      <span *ngIf="!filteredEvents || filteredEvents.length<1" class="m-auto">No Results Found!!!</span>
+    </ng-container>
+  </div>
+</div>
