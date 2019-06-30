@@ -2,7 +2,7 @@
   {
     "name": "Sunburn 2019",
     "date": "10th July 2019",
-    "numOfSeatsAvail": 20,
+    "numOfSeatsAvail": 10,
     "imageUrl": "assets/images/sunburn.jpg",
     "genre": "Fest, Dance, Music",
     "eventId": "1"
@@ -26,7 +26,7 @@
   {
     "name": "India's Next Model",
     "date": "3rd July 2019",
-    "numOfSeatsAvail": 20,
+    "numOfSeatsAvail": 32,
     "imageUrl": "assets/images/modeling.webp",
     "genre": "Fashion and Modeling",
     "eventId": "4"
@@ -34,7 +34,7 @@
   {
     "name": "Portuguese Saala",
     "date": "29th November 2019",
-    "numOfSeatsAvail": 20,
+    "numOfSeatsAvail": 6,
     "imageUrl": "assets/images/salsa.jpg",
     "genre": "Comedy",
     "eventId": "5"
@@ -42,7 +42,7 @@
   {
     "name": "Divine Shanyayan",
     "date": "26th Octber 2019",
-    "numOfSeatsAvail": 0,
+    "numOfSeatsAvail": 15,
     "imageUrl": "assets/images/shanyayan.webp",
     "genre": "Music and Culture",
     "eventId": "6"

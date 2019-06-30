@@ -15,7 +15,7 @@
       <div class="col-sm-12">
         <label class="mb-0" for="userName">User Name</label>
         <input type="text" class="form-control" formControlName="userName" name="userName"
-               id="userName"
+               id="userName" aria-required="true"
                [ngClass]="isFormControlValid('userName',false)">
         <app-add-error-view [controlAndVisibility]="showErrorMessages('userName',false)"
                             [propBelongsToSubject]="true" [displayNameOfControl]="'name'"></app-add-error-view>
@@ -24,7 +24,7 @@
     <div class="row mt-3">
       <div class="col-sm-12">
         <label class="mb-0" for="email">Email Address</label>
-        <input type="text" class="form-control" formControlName="email" name="email"
+        <input type="text" class="form-control" formControlName="email" name="email" aria-required="true"
                id="email" [ngClass]="isFormControlValid('email',false)">
         <app-add-error-view [controlAndVisibility]="showErrorMessages('email',false)"
                             [propBelongsToSubject]="true" [displayNameOfControl]="'email'"></app-add-error-view>
@@ -43,7 +43,7 @@
       <div class="col-sm-12">
         <label class="mb-0" for="numOfSeats">Number Of Seats</label>
         <select id="numOfSeats" name="numOfSeats" class="form-control" formControlName="numOfSeats"
-                [ngClass]="isFormControlValid('numOfSeats',false)"
+                [ngClass]="isFormControlValid('numOfSeats',false)" aria-required="true"
                 (change)="setAttendeesControls($event)">
           <option value="" disabled>Select</option>
           <option value="{{i+1}}" *ngFor="let seat of maxSeats; let i = index">

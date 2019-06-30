@@ -2,7 +2,10 @@
   <div class="row search-bar">
     <div class="input-group col-sm-12 col-md-8 mb-3 mt-2">
       <input type="text" class="form-control" placeholder="SEARCH EVENTS..."
+             aria-describedby="error-message"
              name="search" id="search" [(ngModel)]="searchText">
+      <span id="error-message" class="aria-info-hidden">
+You have provided an incorrect name</span>
       <div class="input-group-append">
         <span class="input-group-text"><i class="fa fa-search"></i>Search</span>
       </div>
@@ -20,7 +23,7 @@
           <div class="container event-card-info-cont">
             <div class="row text-overflow">
               <div class="col-sm-12 mt-2 mb-2 text-overflow">
-              <span class="event-card-name event-card-text-common" data-toggle="tooltip"
+              <span class="event-card-name event-card-info-text-common" data-toggle="tooltip"
                     [title]="event.name">{{event.name}}</span>
                 <span class="event-card-info-seats event-card-info-text-common span-block">{{event.genre}}</span>
                 <span class="event-card-info-seats event-card-info-text-common span-block">Seats : {{event.numOfSeatsAvail}}</span>
