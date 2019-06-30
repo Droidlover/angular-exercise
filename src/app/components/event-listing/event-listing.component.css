@@ -1,36 +1,35 @@
-.event-background {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .event-card:hover {
   transform: scale(1.1);
   transition-duration: 0.2s;
   z-index: 100;
 }
 
-.event-card-body {
+.event-card .event-card-info-cont {
   display: flex;
 }
 
-.event-card-seats {
-  color: #999;
-  font-size: 12px;
+.event-card .event-card-img-cont {
+  position: relative;
 }
 
-.event-card-text {
+.event-card .event-card-info-text-common {
   text-decoration: none;
   line-height: normal;
   white-space: nowrap;
   max-width: 200px;
 }
 
-.event-card-name {
+.event-card .event-card-info-name {
   color: black;
   font-size: 14px;
 }
 
-.event-card-date {
+.event-card .event-card-info-seats {
+  color: #999;
+  font-size: 12px;
+}
+
+.event-card .event-card-date {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -40,11 +39,7 @@
   text-align: center;
 }
 
-.event-card-img-cont {
-  position: relative;
-}
-
-.event-card-book-btn {
+.event-card .event-card-book-btn {
   text-align: center;
   align-self: center;
 }

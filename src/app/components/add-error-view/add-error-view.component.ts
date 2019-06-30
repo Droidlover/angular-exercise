@@ -29,7 +29,6 @@ export class AddErrorViewComponent implements OnInit, OnChanges {
       const control = this.controlAndVisibility.control;
       if (control.errors) {
         Object.keys(control.errors).forEach((error) => {
-          console.log(control);
           if (error === 'pattern') {
             if (control.errors[error].requiredPattern === Constants.VALIDATION_MESSAGES.NAME.REGEX) {
               this.errorList.push(Constants.VALIDATION_MESSAGES.NAME.ERROR_MESSAGE);
