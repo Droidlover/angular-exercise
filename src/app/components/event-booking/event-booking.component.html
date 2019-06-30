@@ -3,78 +3,82 @@
     <span class="mt-2 h3 col-sm-12">{{selectedEvent.name}}</span>
   </div>
   <div class="row">
-    <span class="mt-2 h4 alert-success col-sm-12" *ngIf="isBookingSuccessfull">{{Constants.BOOKING_SUCCESS}}</span>
+    <div class="col-sm-12">
+      <span class="mt-2 h4 alert-success" *ngIf="isBookingSuccessfull">{{Constants.BOOKING_SUCCESS}}</span>
+    </div>
   </div>
   <div class="row">
     <span class="mt-2 h4 col-sm-12">Number of available seats : {{selectedEvent.numOfSeatsAvail}}</span>
   </div>
   <form [formGroup]="eventBookingForm" (ngSubmit)="submitForm()">
-    <div class="row mb-3">
+    <div class="row">
       <div class="col-sm-12">
         <label class="mb-0" for="userName">User Name</label>
-        <input type="text" class="form-control" aria-label="Default" formControlName="userName" name="userName"
+        <input type="text" class="form-control" formControlName="userName" name="userName"
                id="userName"
-               [ngClass]="isFormControlValid('userName',false)"
-               aria-describedby="inputGroup-sizing-default">
+               [ngClass]="isFormControlValid('userName',false)">
         <app-add-error-view [controlAndVisibility]="showErrorMessages('userName',false)"
-                            [displayNameOfControl]="'Name'"></app-add-error-view>
+                            [propBelongsToSubject]="true" [displayNameOfControl]="'name'"></app-add-error-view>
       </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mt-3">
       <div class="col-sm-12">
         <label class="mb-0" for="email">Email Address</label>
-        <input type="text" class="form-control" aria-label="Default" formControlName="email" name="email"
-               id="email" [ngClass]="isFormControlValid('email',false)"
-               aria-describedby="inputGroup-sizing-default">
+        <input type="text" class="form-control" formControlName="email" name="email"
+               id="email" [ngClass]="isFormControlValid('email',false)">
         <app-add-error-view [controlAndVisibility]="showErrorMessages('email',false)"
-                            [displayNameOfControl]="'Email'"></app-add-error-view>
+                            [propBelongsToSubject]="true" [displayNameOfControl]="'email'"></app-add-error-view>
       </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mt-3">
       <div class="col-sm-12">
         <label class="mb-0" for="phoneNum">Contact Number</label>
-        <input type="text" class="form-control" aria-label="Default" formControlName="phoneNum" name="phoneNum"
-               id="phoneNum" [ngClass]="isFormControlValid('phoneNum',false)"
-               aria-describedby="inputGroup-sizing-default">
+        <input type="text" class="form-control" formControlName="phoneNum" name="phoneNum"
+               id="phoneNum" [ngClass]="isFormControlValid('phoneNum',false)" maxlength="10">
         <app-add-error-view [controlAndVisibility]="showErrorMessages('phoneNum',false)"
                             [displayNameOfControl]="'Phone Number'"></app-add-error-view>
       </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mt-3">
       <div class="col-sm-12">
         <label class="mb-0" for="numOfSeats">Number Of Seats</label>
         <select id="numOfSeats" name="numOfSeats" class="form-control" formControlName="numOfSeats"
                 [ngClass]="isFormControlValid('numOfSeats',false)"
-                (change)="setSeatsToBeBooked($event)">
+                (change)="setAttendeesControls($event)">
           <option value="" disabled>Select</option>
           <option value="{{i+1}}" *ngFor="let seat of maxSeats; let i = index">
             <button type="button">{{i+1}}</button>
           </option>
         </select>
         <app-add-error-view [controlAndVisibility]="showErrorMessages('numOfSeats',false)"
-                            [displayNameOfControl]="'Number Of Seats'"></app-add-error-view>
+                            [displayNameOfControl]="'number Of seats'"></app-add-error-view>
       </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mt-3">
       <div class="col-sm-12">
         <div formArrayName="attendeeNames">
-          <div *ngFor="let attendee of attendeeNames.controls; let i=index">
-            <label class="mb-0">Name of Attendee {{i+1}}</label>
-            <input type="text" class="form-control" aria-label="Default" [formControlName]="i"
-                   [ngClass]="isFormControlValid(i.toString(),true)"
-                   aria-describedby="inputGroup-sizing-default">
+          <div *ngFor="let attendee of attendeeNames.controls; let i=index" class="mt-1">
+            <label class="mb-0">Name of Attendee {{i+2}}</label>
+            <input type="text" class="form-control" [formControlName]="i"
+                   [ngClass]="isFormControlValid(i.toString(),true)">
             <app-add-error-view [controlAndVisibility]="showErrorMessages(i.toString(),true)"
-                                [displayNameOfControl]="'Attendee '+(i + 1)+ ' name'"></app-add-error-view>
+                                [propBelongsToSubject]="false"
+                                [displayNameOfControl]="'the name of attendee '+(i + 2)"></app-add-error-view>
           </div>
         </div>
       </div>
     </div>
-    <div class="row action-button-cont float-right mb-3">
+    <div class="row action-button-cont float-right mt-2 mb-2">
       <div class="col-sm-12">
         <button type="submit" class="btn btn-success mr-2" [disabled]="isBookingSuccessfull">Submit</button>
         <button type="button" class="btn btn-danger" (click)="gotoEventsPage()">{{isBookingSuccessfull?
           'Go to Events':'Cancel'}}
         </button>
+      </div>
+    </div>
+    <div class="clear-float row">
+      <div class="col-sm-12">
+        <p class="col-sm-12" *ngIf="isBookingSuccessfull" class="badge-info posted-data">{{dataPosted}}</p>
       </div>
     </div>
   </form>

@@ -9,10 +9,11 @@ export const Constants = {
   },
   MAX_SEATS_PER_PERSON: 6,
   VALIDATION_MESSAGES: {
-    REQUIRED: '${fieldname} is Required.',
-    ALPHA_NUMERIC: {
+    REQUIRED_SUBJECT: 'Please enter your ${fieldname}.',
+    REQUIRED_OBJECT: 'Please enter ${fieldname}.',
+    NAME: {
       ERROR_MESSAGE: 'Only letters and spaces are allowed',
-      REGEX: '^[a-zA-Z0-9]*$'
+      REGEX: '^[a-zA-Z ]*$'
     },
     EMAIL: {
       ERROR_MESSAGE: 'Invalid Email'
@@ -21,8 +22,10 @@ export const Constants = {
       ERROR_MESSAGE: 'Please enter 10 digit phone number',
       REGEX: '^[0-9]{10}$'
     },
+    MIN_LENGTH: '${fieldName} should be atleast ${length} characters/digits long',
+    MAX_LENGTH: '${fieldName} can be atmost ${length} characters/digits long',
     NUMBER_OF_SEATS: {
-      ERROR_MESSAGE: 'Sorry, can not book tickets more that available quantity'
+      ERROR_MESSAGE: 'Number of seats selected is more than available seats'
     }
   },
   BOOKING_SUCCESS: 'Tickets booked.'

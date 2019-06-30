@@ -1,0 +1,8 @@
+.posted-data {
+  word-break: break-all;
+}
+
+.clear-float {
+  clear: both;
+  display: block;
+}

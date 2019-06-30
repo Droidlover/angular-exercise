@@ -9,10 +9,6 @@
   z-index: 100;
 }
 
-/*.card.event-card {*/
-  /*border-color: #f57272;*/
-/*}*/
-
 .event-card-body {
   display: flex;
 }

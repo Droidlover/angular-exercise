@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {EventsHandlerService} from '../../services/events-handler.service';
 import {EventDetailsModel} from '../../models/event-details.model';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Constants} from '../../constants/Constants';
 import {Router} from '@angular/router';
 
@@ -14,18 +13,15 @@ import {Router} from '@angular/router';
 export class EventListingComponent implements OnInit {
 
   eventList: EventDetailsModel[];
-  dispCols; // Desktop Default
   searchText: string;
   Constants = Constants;
 
   constructor(private http: HttpClient,
               private eventsHandlerService: EventsHandlerService,
-              private breakpointObserver: BreakpointObserver,
               private router: Router) {
   }
 
   ngOnInit() {
-    this.observeScreenBreakPoints();
     this.getEventListAndInit();
 
   }
@@ -36,37 +32,17 @@ export class EventListingComponent implements OnInit {
     });
   }
 
-  private observeScreenBreakPoints() {
-    this.breakpointObserver.observe([
-      Breakpoints.HandsetPortrait,
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.activateHandsetLayout();
-      } else {
-        this.activateDesktopLayout();
-      }
-    });
-  }
-
-  private activateHandsetLayout() {
-    this.dispCols = 1;
-  }
-
-  private activateDesktopLayout() {
-    this.dispCols = 4;
-  }
-
-  bookTicket(event: EventDetailsModel) {
-    this.eventsHandlerService.setSelectedEventItem(event);
-    this.router.navigate(['events/book']);
-  }
-
   isTicketAvailable(event: EventDetailsModel) {
     if (event.numOfSeatsAvail > 0) {
       return true;
     } else {
       return false;
     }
+  }
+
+  bookTicket(event: EventDetailsModel) {
+    this.eventsHandlerService.setSelectedEventItem(event);
+    this.router.navigate(['events/book']);
   }
 
 }
